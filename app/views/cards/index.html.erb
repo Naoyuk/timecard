@@ -8,20 +8,31 @@
       <th>Date</th>
       <th>Start</th>
       <th>End</th>
-      <th>Reststart</th>
-      <th>Restend</th>
+      <!-- <th>Reststart</th> -->
+      <!-- <th>Restend</th> -->
+      <!-- <th>RestTime</th> -->
+      <th>WorkTime</th>
+      <th>Salary</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
+    <% sum_salary = 0 %>
     <% @cards.each do |card| %>
+    <% rest_time = ((card.restend - card.reststart) / 3600).round(1) %>
+    <% work_time = (((card.end - card.start) - rest_time) / 3600).round(1) %>
+    <% salary = work_time * 2000 %>
+    <% sum_salary = sum_salary += salary %>
       <tr>
         <td><%= card.date %></td>
-        <td><%= card.start %></td>
-        <td><%= card.end %></td>
-        <td><%= card.reststart %></td>
-        <td><%= card.restend %></td>
+        <td><%= card.start.to_s(:published_time) %></td>
+        <td><%= card.end.to_s(:published_time) %></td>
+        <!-- <td><%= card.reststart.to_s(:published_time) %></td> -->
+        <!-- <td><%= card.restend.to_s(:published_time) %></td> -->
+        <!-- <td><%= rest_time %></td> -->
+        <td><%= work_time %></td>
+        <td><%= salary %></td>
         <td><%= link_to 'Show', card %></td>
         <td><%= link_to 'Edit', edit_card_path(card) %></td>
         <td><%= link_to 'Destroy', card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -29,6 +40,8 @@
     <% end %>
   </tbody>
 </table>
+
+<p>合計: <%= sum_salary %></p>
 
 <br>
 
