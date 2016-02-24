@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @card.date %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @card.start %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @card.end %>
+</p>
+
+<p>
+  <strong>Reststart:</strong>
+  <%= @card.reststart %>
+</p>
+
+<p>
+  <strong>Restend:</strong>
+  <%= @card.restend %>
+</p>
+
+<%= link_to 'Edit', edit_card_path(@card) %> |
+<%= link_to 'Back', cards_path %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2016-02-24
+  start: 2016-02-24 02:16:03
+  end: 2016-02-24 02:16:03
+  reststart: 2016-02-24 02:16:03
+  restend: 2016-02-24 02:16:03
+
+two:
+  date: 2016-02-24
+  start: 2016-02-24 02:16:03
+  end: 2016-02-24 02:16:03
+  reststart: 2016-02-24 02:16:03
+  restend: 2016-02-24 02:16:03
