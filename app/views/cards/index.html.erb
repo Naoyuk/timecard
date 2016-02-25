@@ -6,12 +6,12 @@
     <thead>
       <tr>
         <th>Date</th>
-        <th>Attendance</th>
-        <th>Exit</th>
+        <th>Attend</th>
+        <th>Quit</th>
         <!-- <th>Reststart</th> -->
         <!-- <th>Restend</th> -->
         <!-- <th>RestTime</th> -->
-        <th>Working</th>
+        <th>Total</th>
         <th>Wage</th>
         <th colspan="2"></th>
       </tr>
@@ -20,10 +20,12 @@
     <tbody>
       <% sum_salary = 0 %>
       <% @cards.each do |card| %>
-      <% rest_time = ((card.restend - card.reststart) / 3600).round(1) %>
-      <% work_time = (((card.end - card.start) - rest_time) / 3600).round(1) %>
-      <% salary = work_time * 2000 %>
-      <% sum_salary = sum_salary += salary %>
+      <%
+        rest_time = ((card.restend - card.reststart) / 3600).round(1)
+        work_time = (((card.end - card.start) - (card.restend - card.reststart)) / 3600).round(1)
+        salary = work_time * 2000
+        sum_salary = sum_salary += salary
+      %>
         <tr>
           <td><%= card.date %></td>
           <td><%= card.start.to_s(:published_time) %></td>
@@ -34,7 +36,9 @@
           <td><%= work_time %></td>
           <td><%= salary.round %></td>
           <td><%= link_to 'Edit', edit_card_path(card) %></td>
-          <td><%= link_to 'Delete', card, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %></td>
+          <td><%= link_to card, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs', :method => :delete do %>
+            <i class="glyphicon glyphicon-minus"></i>
+          <% end %></td>
         </tr>
       <% end %>
     </tbody>

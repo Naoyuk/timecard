@@ -1,8 +1,12 @@
 class Card < ActiveRecord::Base
-  after_initialize do
-    self.start = "2000-01-01 09:30:00"
-    self.end = "2000-01-01 18:30:00"
-    self.reststart = "2000-01-01 12:00:00"
-    self.restend = "2000-01-01 13:00:00"
+  after_initialize :set_default, if: :new_record?
+  
+  private
+  def set_default 
+    d = Time.now
+    self.start = Time.local(d.year, d.month, d.day, 9, 30, 0)
+    self.end = Time.local(d.year, d.month, d.day, 18, 30, 0)
+    self.reststart = Time.local(d.year, d.month, d.day, 12, 0, 0)
+    self.restend = Time.local(d.year, d.month, d.day, 13, 0, 0)
   end
 end

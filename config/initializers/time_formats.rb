@@ -1,3 +1,3 @@
-Time::DATE_FORMATS[:published_on] = "%Y年%m月%d日 %H時%M分"
-Time::DATE_FORMATS[:published_time] = "%H時%M分"
-Date::DATE_FORMATS[:default]      = "%Y年%m月%d日"
+Time::DATE_FORMATS[:published_on] = "%Y/%m/%d %H:%M"
+Time::DATE_FORMATS[:published_time] = "%H:%M"
+Date::DATE_FORMATS[:default]      = "%Y/%m/%d"
