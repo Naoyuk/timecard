@@ -1,5 +1,9 @@
-<h1>UserMailer#registration_confirmation</h1>
-
 <p>
-  <%= @greeting %>, find me in app/views/user_mailer/registration_confirmation.html.erb
+お疲れ様です。<br>
+本日のタイムカードです。
+</p>
+<p>
+出社: <%= @card.start.to_s(:published_time) %><br>
+退社: <%= @card.end.to_s(:published_time) %><br>
+交通費: 0
 </p>

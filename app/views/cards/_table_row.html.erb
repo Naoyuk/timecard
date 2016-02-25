@@ -1,0 +1,17 @@
+<%
+rest_time = ((card.restend - card.reststart) / 3600).round(1)
+work_time = (((card.end - card.start) - (card.restend - card.reststart)) / 3600).round(1)
+salary = work_time * 2000
+@sum_salary = @sum_salary += salary
+%>
+<tr>
+  <td><%= card.date.to_s(:published_md) %></td>
+  <td><%= card.start.to_s(:published_time) %></td>
+  <td><%= card.end.to_s(:published_time) %></td>
+  <td><%= work_time %></td>
+  <td><%= salary.round %></td>
+  <td><%= link_to 'Edit', edit_card_path(card) %></td>
+  <td><%= link_to card, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs', :method => :delete do %>
+    <i class="glyphicon glyphicon-minus"></i>
+  <% end %></td>
+</tr>

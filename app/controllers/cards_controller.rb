@@ -28,6 +28,7 @@ class CardsController < ApplicationController
 
     respond_to do |format|
       if @card.save
+        UserMailer.registration_confirmation(@card).deliver_later
         format.html { redirect_to @card, notice: 'Card was successfully created.' }
         format.json { render :show, status: :created, location: @card }
       else
@@ -60,7 +61,7 @@ class CardsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_card
