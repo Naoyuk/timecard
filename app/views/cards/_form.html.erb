@@ -31,6 +31,19 @@
     <%= f.label :restend %><br>
     <%= f.time_select :restend %>
   </div>
+  
+  <div class="field">
+    <%= text_field_tag :cost, '0' %>
+  </div>
+  
+  <div class="field">
+    <%= text_field_tag :to %>
+  </div>
+  
+  <div class="field">
+    <%= text_field_tag :cc %>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

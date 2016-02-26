@@ -4,7 +4,7 @@ class CardsController < ApplicationController
   # GET /cards
   # GET /cards.json
   def index
-    @cards = Card.all
+    @cards = Card.all.order("date DESC")
   end
 
   # GET /cards/1
@@ -25,10 +25,13 @@ class CardsController < ApplicationController
   # POST /cards.json
   def create
     @card = Card.new(card_params)
+    @cost = params[:cost]
+    to = params[:to]
+    cc = params[:cc]
 
     respond_to do |format|
       if @card.save
-        UserMailer.registration_confirmation(@card).deliver_later
+        UserMailer.registration_confirmation(@card, @cost, to, cc).deliver_later
         format.html { redirect_to @card, notice: 'Card was successfully created.' }
         format.json { render :show, status: :created, location: @card }
       else

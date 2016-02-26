@@ -3,4 +3,4 @@
 
 出社: <%= @card.start.to_s(:published_time) %>
 退社: <%= @card.end.to_s(:published_time) %>
-交通費: 0
+交通費: <%= @cost.to_i.round %>
