@@ -7,6 +7,9 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+gem 'sqlite3', groups: %w(test development), require: false
+gem 'pg', groups: %w(production), require: false
+
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
@@ -19,17 +22,11 @@ gem 'bootstrap-sass'
 gem 'dotenv-rails'
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'byebug'
 end
 
 group :development do
-  gem 'sqlite3'
   gem 'web-console', '~> 2.0'
 
   # gem 'spring'
-end
-
-group :production do
-  gem 'pg'
 end
