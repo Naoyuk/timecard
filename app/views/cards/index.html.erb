@@ -15,13 +15,14 @@
     </thead>
   
     <tbody>
-      <% @sum_salary = 0; @cards.each do |card| %>
+      <% @sum_salary = 0; @sum_time = 0; @cards.each do |card| %>
         <%= render partial: 'table_row', locals: {card: card} %>
       <% end %>
     </tbody>
   </table>
   
-  <p>合計: <span class="glyphicon glyphicon-jpy" aria-hidden="true"></span><strong><%= @sum_salary.round %></strong></p>
+  <p>合計労働時間: <strong><%= @sum_time.round %></strong></p>
+  <p>合計金額: <span class="glyphicon glyphicon-jpy" aria-hidden="true"></span><strong><%= @sum_salary.round %></strong></p>
   
   <br>
 

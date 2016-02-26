@@ -2,7 +2,8 @@
 rest_time = ((card.restend - card.reststart) / 3600).round(1)
 work_time = (((card.end - card.start) - (card.restend - card.reststart)) / 3600).round(1)
 salary = work_time * 2000
-@sum_salary = @sum_salary += salary
+@sum_salary += salary
+@sum_time += work_time
 %>
 <tr>
   <td><%= card.date.to_s(:published_md) %></td>

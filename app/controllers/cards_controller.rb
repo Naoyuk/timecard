@@ -32,7 +32,7 @@ class CardsController < ApplicationController
     respond_to do |format|
       if @card.save
         UserMailer.registration_confirmation(@card, @cost, to, cc).deliver_later
-        format.html { redirect_to @card, notice: 'Card was successfully created.' }
+        format.html { redirect_to cards_url, notice: 'Card was successfully created.' }
         format.json { render :show, status: :created, location: @card }
       else
         format.html { render :new }
