@@ -19,7 +19,7 @@ gem 'bootstrap-sass'
 gem 'dotenv-rails'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.10'
+  gem 'sqlite3', '1.3.11'
   gem 'byebug'
 end
 
