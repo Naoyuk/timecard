@@ -13,11 +13,11 @@
   <div class="container">
     <div class="navbar-header">
       <a class="navbar-brand" href="/">TimeCard</a>
+      <%= link_to 'New', new_card_path, class: 'btn btn-primary navbar-btn' %>
     </div>
   </div>
 </nav>
 <div class="container">
-  <%= link_to 'New Card', new_card_path, class: 'btn btn-primary btn-lg' %>
   <%= yield %>
 </div>
 
