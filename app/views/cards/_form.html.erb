@@ -11,40 +11,77 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.date_select :date %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.label :date, '日付' %><br>
+        <%= f.text_field :date, class: "form-controll date-picker" %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :start %><br>
-    <%= f.time_select :start %>
+    
+  <div class="row">
+    <div class="col-md-2">
+      <div class="form-group">
+        <%= f.label :start, '出勤時刻' %><br>
+        <%= f.time_select :start, class: "form-controll" %>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <%= f.label :end, '退勤時刻' %><br>
+        <%= f.time_select :end, class: "form-controll" %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :end %><br>
-    <%= f.time_select :end %>
-  </div>
-  <div class="field">
-    <%= f.label :reststart %><br>
-    <%= f.time_select :reststart %>
-  </div>
-  <div class="field">
-    <%= f.label :restend %><br>
-    <%= f.time_select :restend %>
+    
+  <div class="row">
+    <div class="col-md-2">
+      <div class="form-group">
+        <%= f.label :reststart, '休憩開始時刻' %><br>
+        <%= f.time_select :reststart, class: "form-controll" %>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <%= f.label :restend, '休憩終了時刻' %><br>
+        <%= f.time_select :restend, class: "form-controll" %>
+      </div>
+    </div>
   </div>
   
-  <div class="field">
-    <%= text_field_tag :cost, '0' %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.label :cost, '交通費' %><br>
+        <%= text_field_tag :cost, '0', class: "form-controll" %>
+      </div>
+    </div>
   </div>
-  
-  <div class="field">
-    <%= text_field_tag :to %>
+    
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.label :to %><br>
+        <%= text_field_tag :to, '', class: "form-controll" %>
+      </div>
+    </div>
   </div>
-  
-  <div class="field">
-    <%= text_field_tag :cc %>
+    
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.label :cc %><br>
+        <%= text_field_tag :cc, '', class: "form-controll" %>
+      </div>
+    </div>
   </div>
-  
-  <div class="actions">
-    <%= f.submit %>
+    
+  <div class="row">
+    <div class="col-md-12">
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    </div>
   </div>
 <% end %>
