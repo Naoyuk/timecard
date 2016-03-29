@@ -4,7 +4,24 @@ class CardsController < ApplicationController
   # GET /cards
   # GET /cards.json
   def index
-    @cards = Card.all.order("date DESC")
+    year_month = params[:year_month]
+    d = Date.today
+    
+    if year_month
+      d_t = Date.new(year_month[0..3].to_i, year_month[-2..-1].to_i, 1)
+      d_s = Date.new(d_t.last_month.year, d_t.last_month.month, 26)
+      d_e = Date.new(d_t.year, d_t.month, 25)
+    elsif d.day > 25
+      d_s = d
+      d_e = d.next_month
+    else
+      d_s = d.last_month
+      d_e = d
+    end
+    
+    d_start = Date.new(d_s.year, d_s.month, 26)
+    d_end = Date.new(d_e.year, d_e.month, 25)
+    @cards = Card.date_between(d_start, d_end).order("date DESC")
   end
 
   # GET /cards/1

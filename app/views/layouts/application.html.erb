@@ -14,6 +14,22 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="/">TimeCard</a>
       <%= link_to 'New', new_card_path, class: 'btn btn-primary navbar-btn' %>
+      <%
+      # pre: 201602, nex: 201512 など
+      if !params[:year_month]
+        if Date.today.day > 25
+          tod = Date.today.next_month
+        else
+          tod = Date.today
+        end
+      else
+        tod = Date.new(params[:year_month][0..3].to_i, params[:year_month][-2..-1].to_i, 1)
+      end
+      pre = tod.last_month.year.to_s + sprintf("%02d", tod.last_month.month)
+      nex = tod.next_month.year.to_s + sprintf("%02d", tod.next_month.month)
+      %>
+      <%= link_to "前月", :controller => "cards", :action => "index", :year_month => pre %>
+      <%= link_to "次月", :controller => "cards", :action => "index", :year_month => nex %>
     </div>
   </div>
 </nav>

@@ -1,6 +1,16 @@
 class Card < ActiveRecord::Base
   after_initialize :set_default, if: :new_record?
   
+  scope :date_between, -> from, to do
+    if from.present? && to.present?
+      where(date: from..to)
+    elsif from.present?
+      where('date >= ?', from)
+    elsif to.present?
+      where('date <= ?', to)
+    end
+  end
+  
   private
   def set_default 
     d = Time.now
