@@ -11,7 +11,7 @@ salary = work_time * 2000
   <td><%= card.end.to_s(:published_time) %></td>
   <td><%= work_time %></td>
   <td><%= salary.round %></td>
-  <td><%= link_to 'Edit', edit_card_path(card) %></td>
+  <td><%= link_to 'Edit', edit_card_path(card), class: 'btn btn-default btn-xs' %></td>
   <td><%= link_to card, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs', :method => :delete do %>
     <i class="glyphicon glyphicon-minus"></i>
   <% end %></td>
